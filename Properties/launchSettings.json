@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SystemInformation(Basic Taskmanager in console)": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
