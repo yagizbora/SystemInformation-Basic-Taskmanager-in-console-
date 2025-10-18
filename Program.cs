@@ -46,8 +46,12 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
                 Console.WriteLine($"User Domain Name: {Environment.UserDomainName}");
                 Console.WriteLine($"64-Bit Operating System: {Environment.Is64BitOperatingSystem}");
                 Console.WriteLine($"Cpu Procces Count:  {Environment.ProcessorCount}");
+                Console.WriteLine($"System Page Size: {Environment.SystemPageSize} bytes");
+                Console.WriteLine($"Tick Count: {Environment.TickCount} ms");
+                Console.WriteLine($"Logical Drives: {string.Join(", ", Environment.GetLogicalDrives())}");
+                Console.WriteLine($"System Uptime: {TimeSpan.FromMilliseconds(Environment.TickCount)}");
+                //Console.WriteLine($"Cpu Usage: {Environment.ProcessCpuUsage.Equals}");
                 Console.WriteLine($"User Name: {Environment.UserName}");
-                Console.WriteLine($"CLR Version: {Environment.Version}");
 
                 //foreach (var process in processes)
                 //{
