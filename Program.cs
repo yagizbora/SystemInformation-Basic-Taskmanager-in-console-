@@ -15,8 +15,9 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
 
             while(true)
             {
-                Console.Clear();
-                Console.WriteLine("===SYSTEM INFORMATION===");
+                Console.Clear(); 
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("=== SYSTEM INFORMATION ===");
                 Console.WriteLine("\n===BASIC TASKMANAGER===");
 
 
@@ -65,6 +66,7 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
                 //    }
                 //}
                 Console.WriteLine("\nPress Ctrl+C to exit.");
+                Console.ResetColor();
                 Thread.Sleep(5000);
             }
             
