@@ -58,7 +58,6 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
                 Console.WriteLine($"Current Directory: {Environment.CurrentDirectory}");
                 Console.WriteLine($"CLR Version: {Environment.Version}");   
                 Console.WriteLine($"Logical Drives: {string.Join(", ", Environment.GetLogicalDrives())}");
-                Console.WriteLine($"System Uptime: {TimeSpan.FromMilliseconds(Environment.TickCount)}");
                 try
                 {
                     var cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
