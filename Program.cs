@@ -19,14 +19,11 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\n=== SYSTEM INFORMATION ===");
                 Console.WriteLine("\n=== BASIC TASKMANAGER ===");
-
-
                 using (var proc = Process.GetCurrentProcess())
                 {
                     long memBytes = proc.WorkingSet64;
                     Console.WriteLine($"App Memory Usage: {memBytes / 1024 / 1024} MB");
                 }
-
                 try
                 {
                     var pc = new PerformanceCounter("Memory", "Available MBytes");
@@ -36,10 +33,7 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
                 {
                     Console.WriteLine("Available RAM: (PerformanceCounter not supported on this platform)");
                 }
-
-
                 Console.WriteLine("\n===SYSTEM DETAILS===");
-
                 Console.WriteLine($"User Name: {Environment.UserName}");
                 Console.WriteLine($"Machine Name: {Environment.MachineName}");
                 Console.WriteLine($"Operating System: {Environment.OSVersion}");
@@ -52,8 +46,20 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
                 Console.WriteLine($"Tick Count: {Environment.TickCount} ms");
                 Console.WriteLine($"Logical Drives: {string.Join(", ", Environment.GetLogicalDrives())}");
                 Console.WriteLine($"System Uptime: {TimeSpan.FromMilliseconds(Environment.TickCount)}");
-                //Console.WriteLine($"Cpu Usage: {Environment.ProcessCpuUsage.Equals}");
+                try
+                {
+                    var cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
 
+                    cpuCounter.NextValue();
+                    Thread.Sleep(100);
+
+                    float cpuUsage = cpuCounter.NextValue();
+                    Console.WriteLine($"CPU Kullanımı: {cpuUsage:0.00}%");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("CPU Usage: (PerformanceCounter not supported on this platform)");
+                }
                 //foreach (var process in processes)
                 //{
                 //    try
@@ -69,7 +75,6 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
                 Console.ResetColor();
                 Thread.Sleep(5000);
             }
-            
         }
     }
 }
