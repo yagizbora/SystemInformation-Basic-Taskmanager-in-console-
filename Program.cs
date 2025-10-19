@@ -33,7 +33,7 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
                 {
                     Console.WriteLine("Available RAM: (PerformanceCounter not supported on this platform)");
                 }
-                Console.WriteLine("\n===SYSTEM DETAILS===");
+                Console.WriteLine("\n===SYSTEM DETAILS===\n");
                 Console.WriteLine($"User Name: {Environment.UserName}");
                 Console.WriteLine($"Machine Name: {Environment.MachineName}");
                 Console.WriteLine($"Operating System: {Environment.OSVersion}");
@@ -53,7 +53,7 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
                     var cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
 
                     cpuCounter.NextValue();
-                    Thread.Sleep(100);
+                    Thread.Sleep(1000);
 
                     float cpuUsage = cpuCounter.NextValue();
                     Console.WriteLine($"CPU Kullanımı: {cpuUsage:0.00}%");
