@@ -48,6 +48,10 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
                 Console.WriteLine($"System Directory: {Environment.SystemDirectory}");
                 Console.WriteLine($"User Domain Name: {Environment.UserDomainName}");
                 Console.WriteLine($"64-Bit Operating System: {Environment.Is64BitOperatingSystem}");
+                Console.WriteLine($"64-Bit Process: {Environment.Is64BitProcess}");
+                Console.WriteLine($"Installed UI Culture: {System.Globalization.CultureInfo.InstalledUICulture.DisplayName}");
+                Console.WriteLine($"CLR Installed: {Environment.HasShutdownStarted}");
+                Console.WriteLine($"System Uptime: {TimeSpan.FromMilliseconds(Environment.TickCount).Days} days, {TimeSpan.FromMilliseconds(Environment.TickCount).Hours} hours, {TimeSpan.FromMilliseconds(Environment.TickCount).Minutes} minutes, {TimeSpan.FromMilliseconds(Environment.TickCount).Seconds} seconds");
                 Console.WriteLine($"Cpu Procces Count:  {Environment.ProcessorCount}");
                 Console.WriteLine($"System Page Size: {Environment.SystemPageSize} bytes");
                 Console.WriteLine($"Tick Count: {Environment.TickCount} ms");
