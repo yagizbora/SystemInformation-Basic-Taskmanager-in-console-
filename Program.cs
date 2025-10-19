@@ -11,9 +11,9 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
         {
             Console.Title = "System Information & Basic Taskmanager in console";
 
+            SystemInfo systemInfo = new SystemInfo();
 
-
-            while(true)
+            while (true)
             {
                 Console.Clear(); 
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -44,6 +44,8 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
                 Console.WriteLine($"Cpu Procces Count:  {Environment.ProcessorCount}");
                 Console.WriteLine($"System Page Size: {Environment.SystemPageSize} bytes");
                 Console.WriteLine($"Tick Count: {Environment.TickCount} ms");
+                Console.WriteLine($"Current Directory: {Environment.CurrentDirectory}");
+                Console.WriteLine($"CLR Version: {Environment.Version}");   
                 Console.WriteLine($"Logical Drives: {string.Join(", ", Environment.GetLogicalDrives())}");
                 Console.WriteLine($"System Uptime: {TimeSpan.FromMilliseconds(Environment.TickCount)}");
                 try
@@ -60,6 +62,7 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
                 {
                     Console.WriteLine("CPU Usage: (PerformanceCounter not supported on this platform)");
                 }
+                SystemInfo.getnetversion();
                 //foreach (var process in processes)
                 //{
                 //    try
@@ -78,3 +81,36 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
         }
     }
 }
+
+
+    public class SystemInfo
+    {
+        public static void getnetversion()
+        {
+            try
+            {
+                var process = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = "dotnet",
+                        Arguments = "--list-sdks",
+                        RedirectStandardOutput = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true
+                    }
+                };
+
+                process.Start();
+                string output = process.StandardOutput.ReadToEnd();
+                process.WaitForExit();
+
+                Console.WriteLine($"Installed .NET SDKs: {output}");
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching SDKs: {ex.Message}");
+            }
+        }
+    }
