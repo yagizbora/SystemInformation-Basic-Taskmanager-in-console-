@@ -34,6 +34,7 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
                     Console.WriteLine("Available RAM: (PerformanceCounter not supported on this platform)");
                 }
                 Console.WriteLine("\n===SYSTEM DETAILS===\n");
+                Console.WriteLine($"System Directory: {Environment.SystemDirectory}");
                 Console.WriteLine($"User Name: {Environment.UserName}");
                 Console.WriteLine($"Machine Name: {Environment.MachineName}");
                 Console.WriteLine($"Operating System: {Environment.OSVersion}");
@@ -60,7 +61,7 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("CPU Usage: (PerformanceCounter not supported on this platform)");
+                    Console.WriteLine("CPU Usage: (PerformanceCounter not supported on this platform.)");
                 }
                 SystemInfo.getnetversion();
                 //foreach (var process in processes)
@@ -76,7 +77,7 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
                 //}
                 Console.WriteLine("\nPress Ctrl+C to exit.");
                 Console.ResetColor();
-                Thread.Sleep(5000);
+                Thread.Sleep(3500);
             }
         }
     }
