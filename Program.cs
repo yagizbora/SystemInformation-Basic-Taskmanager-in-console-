@@ -17,8 +17,8 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
             {
                 Console.Clear(); 
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("=== SYSTEM INFORMATION ===");
-                Console.WriteLine("\n===BASIC TASKMANAGER===");
+                Console.WriteLine("\n=== SYSTEM INFORMATION ===");
+                Console.WriteLine("\n=== BASIC TASKMANAGER ===");
 
 
                 using (var proc = Process.GetCurrentProcess())
@@ -40,6 +40,7 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
 
                 Console.WriteLine("\n===SYSTEM DETAILS===");
 
+                Console.WriteLine($"User Name: {Environment.UserName}");
                 Console.WriteLine($"Machine Name: {Environment.MachineName}");
                 Console.WriteLine($"Operating System: {Environment.OSVersion}");
                 Console.WriteLine($"Processor Count: {Environment.ProcessorCount}");
@@ -52,7 +53,6 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
                 Console.WriteLine($"Logical Drives: {string.Join(", ", Environment.GetLogicalDrives())}");
                 Console.WriteLine($"System Uptime: {TimeSpan.FromMilliseconds(Environment.TickCount)}");
                 //Console.WriteLine($"Cpu Usage: {Environment.ProcessCpuUsage.Equals}");
-                Console.WriteLine($"User Name: {Environment.UserName}");
 
                 //foreach (var process in processes)
                 //{
