@@ -9,7 +9,10 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
     {
         static void Main(string[] args)
         {
+            ProgramInfo program = new();
+
             Console.Title = "System Information & Basic Taskmanager in console";
+
 
             SystemInfo systemInfo = new SystemInfo();
 
@@ -17,6 +20,9 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
             {
                 Console.Clear(); 
                 Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"System Information & Basic Taskmanager in console {ProgramInfo.versiyon}");
+                Console.WriteLine("");
+                Console.WriteLine("");
                 Console.WriteLine("\n=== SYSTEM INFORMATION ===");
                 Console.WriteLine("\n=== BASIC TASKMANAGER ===");
                 using (var proc = Process.GetCurrentProcess())
@@ -81,6 +87,11 @@ namespace SystemInformation_Basic_Taskmanager_in_console_
             }
         }
     }
+}
+
+public class ProgramInfo
+{
+    public const string versiyon = "v1.0.0";
 }
 
 
